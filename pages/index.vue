@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
+      <TestCompo />
       <h1 class="title">Bonjour</h1>
       <div class="links">
         <a
