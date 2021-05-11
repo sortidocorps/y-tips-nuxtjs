@@ -8,4 +8,4 @@ https://youtu.be/9YUGRHF92oY
 
 
 ## tips3 - Components
-Upload
+https://youtu.be/bwzjB-fsWLI
