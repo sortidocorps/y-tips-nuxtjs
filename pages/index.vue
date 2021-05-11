@@ -1,34 +1,44 @@
 <template>
   <div class="container">
     <div>
-      <TestCompo />
-      <h1 class="title">Bonjour</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+       <Composant5>
+        <template v-slot:title>
+            <h1 class="my-2 text-yellow-500 text-xl ">title 2</h1>
+        </template>
+        <img src="https://loremflickr.com/320/240" />
+        <p>Voici mon image</p>
+        <template v-slot:footer>
+            <i>Pour vous inscrire cliqué sur le bouton</i>
+        </template>
+      </Composant5>
+    <div class="my-5">
+      <Composant2 :title="'Espace'" />
+    </div>
+      <Composant5>
+        <template v-slot:title>
+            <h1 class="my-2 text-blue-500 text-sm">Little</h1>
+        </template>
+        <img src="https://loremflickr.com/320/240/dog" />
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque repudiandae facere possimus, aliquam iure provident minus modi reiciendis temporibus? Debitis dolorem numquam iure quas corporis cupiditate aspernatur recusandae explicabo pariatur.</p>
+        
+      </Composant5>
+      
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
 
-export default Vue.extend({})
+<script lang="ts">
+import {Component, Vue} from 'nuxt-property-decorator'
+
+@Component
+export default class Index extends Vue {
+  public information: string = ''
+    
+    actionCompo3(value: string) {
+        this.information = value
+    }
+}
 </script>
 
 <style>
