@@ -34,11 +34,32 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    [
+      'nuxt-vuex-localstorage',
+      {
+        mode: 'debug',
+        localStorage: ['monstore'],
+      },
+    ],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    proxy: false, // Can be also an object with default options
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    babel: {
+      plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
+    },
+  },
+
+  // proxy: {
+  //   '/api': {
+  //     target: 'dog-facts-api.herokuapp.com',
+  //     pathRewrite: { '^/api/': '' },
+  //     changeOrigin: true,
+  //   },
+  // },
 }

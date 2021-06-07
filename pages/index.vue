@@ -1,52 +1,98 @@
 <template>
-  <div class="container">
-    <div>
-       <Composant5>
-        <template v-slot:title>
-            <h1 class="my-2 text-yellow-500 text-xl ">title 2</h1>
-        </template>
-        <img src="https://loremflickr.com/320/240" />
-        <p>Voici mon image</p>
-        <template v-slot:footer>
-            <i>Pour vous inscrire cliqué sur le bouton</i>
-        </template>
-      </Composant5>
-    <div class="my-5">
-      <Composant2 :title="'Espace'" />
+  <div>
+    <div
+      class="pl-5 pt-5 text-xl text-green-500 flex flex-col place-content-end"
+    >
+      Mon Store:
+      <p>Nombre de vac {{ nbVac }}</p>
+      <p>Nombre de cat {{ nbCat }}</p>
+      <p>Nombre de bear {{ nbBear }}</p>
     </div>
-      <Composant5>
-        <template v-slot:title>
-            <h1 class="my-2 text-blue-500 text-sm">Little</h1>
+    <div
+      v-for="post in postsList"
+      :key="post.id"
+      class="flex place-content-around"
+    >
+      <Card
+        :title="post.title"
+        :bt-enable="false"
+        @handleAction="handleActionStore"
+      >
+        <p class="text-xl text-blue-500">{{ post.continent }}</p>
+
+        <p class="text-sm">{{ post.description }}</p>
+
+        <template #img>
+          <img :src="post.image" />
         </template>
-        <img src="https://loremflickr.com/320/240/dog" />
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque repudiandae facere possimus, aliquam iure provident minus modi reiciendis temporibus? Debitis dolorem numquam iure quas corporis cupiditate aspernatur recusandae explicabo pariatur.</p>
-        
-      </Composant5>
-      
+      </Card>
+    </div>
+    <div class="container">
+      <Card :title="'vac'" @handleAction="handleActionStore">
+        <template #img>
+          <img src="http://placeimg.com/640/360/nature" />
+        </template>
+      </Card>
+      <Card :title="'cat'" @handleAction="handleActionStore">
+        <template #img>
+          <img src="https://placekitten.com/640/360" />
+        </template>
+      </Card>
+      <Card :title="'bear'" @handleAction="handleActionStore">
+        <template #img>
+          <img src="https://placebear.com/640/360" />
+        </template>
+      </Card>
     </div>
   </div>
 </template>
 
-
 <script lang="ts">
-import {Component, Vue} from 'nuxt-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
+import { NuxtjsPost } from '~/lib/models/nuxtjsPost'
 
 @Component
 export default class Index extends Vue {
   public information: string = ''
-    
-    actionCompo3(value: string) {
-        this.information = value
+  public postsList: NuxtjsPost[] = []
+
+  async created() {
+    this.postsList = await this.$store.dispatch('monstore/getPosts')
+  }
+
+  get listing() {
+    return this.$store.state.monstore.list
+  }
+
+  get nbVac() {
+    return this.$store.state.monstore.vac
+  }
+
+  get nbCat() {
+    return this.$store.state.monstore.cat
+  }
+
+  get nbBear() {
+    return this.$store.state.monstore.bear
+  }
+
+  actionCompo3(value: string) {
+    this.information = value
+  }
+
+  handleActionStore(i: number, value: string) {
+    if (Math.sign(i) > 0) {
+      // this.$store.commit('monstore/increment', value)
+      this.$store.dispatch('monstore/increment', value)
+    } else {
+      // this.$store.commit('monstore/decrement', value)
+      this.$store.dispatch('monstore/decrement', value)
     }
+  }
 }
 </script>
 
 <style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
 .container {
   margin: 0 auto;
   min-height: 100vh;
