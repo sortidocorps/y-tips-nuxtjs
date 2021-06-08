@@ -14,4 +14,4 @@ https://youtu.be/bwzjB-fsWLI
 
 ## tips4 - Vuex Store
 
--- video upload
+https://youtu.be/F6IQhmObU5U
