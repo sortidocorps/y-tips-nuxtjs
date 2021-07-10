@@ -16,6 +16,6 @@ https://youtu.be/bwzjB-fsWLI
 
 https://youtu.be/F6IQhmObU5U
 
-## tips4 - Vuex Store Concret example
+## tips5 - Vuex Store Concret example
 
--- upload
+https://youtu.be/KHFwUys8bGE
