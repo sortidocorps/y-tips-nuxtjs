@@ -1,5 +1,12 @@
 <template>
   <div>
+    <nuxt-link
+      class="bg-green-500 text-white p-6 flex text-center place-content-center"
+      to="/toastinette"
+    >
+      Go to Toastinette</nuxt-link
+    >
+
     <div
       class="pl-5 pt-5 text-xl text-green-500 flex flex-col place-content-end"
     >
@@ -8,6 +15,7 @@
       <p>Nombre de cat {{ nbCat }}</p>
       <p>Nombre de bear {{ nbBear }}</p>
     </div>
+
     <div
       v-for="post in postsList"
       :key="post.id"

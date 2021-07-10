@@ -1,8 +1,31 @@
 <template>
   <div class="bg-gray-300">
     <Nuxt />
+    <div
+      v-for="(toast, index) in toasts.filter((s) => s.show)"
+      :key="toast.text + Math.random()"
+    >
+      <Toast :alert="toast.show" :msg="toast.text" :color="toast.color" />
+    </div>
   </div>
 </template>
+
+<script lang="ts">
+import { Component, namespace, Vue } from 'nuxt-property-decorator'
+const toast = namespace('toast')
+
+@Component
+export default class Default extends Vue {
+  @toast.State
+  public toasts!: object
+
+  // computed: {
+  //   ...mapState({
+  //     toasts: (state) => state.toast.toasts,
+  //   }}),
+  // },
+}
+</script>
 
 <style>
 html {
