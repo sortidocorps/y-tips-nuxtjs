@@ -19,3 +19,7 @@ https://youtu.be/F6IQhmObU5U
 ## tips5 - Vuex Store Concret example
 
 https://youtu.be/KHFwUys8bGE
+
+## tips6 - Layout example
+
+https://youtu.be/KHFwUys8bGE

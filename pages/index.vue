@@ -1,11 +1,29 @@
 <template>
   <div>
-    <nuxt-link
-      class="bg-green-500 text-white p-6 flex text-center place-content-center"
-      to="/toastinette"
-    >
-      Go to Toastinette</nuxt-link
-    >
+    <nav class="bg-white px-8 pt-2 shadow-md">
+      <div class="-mb-px flex justify-center">
+        <nuxt-link
+          class="text-green-500 font-bold text-white p-6 flex text-center place-content-center hover:bg-green-500 hover:text-white rounded"
+          to="/toastinette"
+        >
+          Toastinette</nuxt-link
+        >
+
+        <nuxt-link
+          class="text-pink-500 font-bold text-white p-6 flex text-center place-content-center hover:bg-pink-500 hover:text-white rounded"
+          to="/site"
+        >
+          Website</nuxt-link
+        >
+
+        <nuxt-link
+          class="text-blue-500 font-bold text-white p-6 flex text-center place-content-center hover:bg-blue-500 hover:text-white rounded"
+          to="/admin"
+        >
+          Admin</nuxt-link
+        >
+      </div>
+    </nav>
 
     <div
       class="pl-5 pt-5 text-xl text-green-500 flex flex-col place-content-end"
