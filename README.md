@@ -22,4 +22,4 @@ https://youtu.be/KHFwUys8bGE
 
 ## tips6 - Layout example
 
-https://youtu.be/KHFwUys8bGE
+https://youtu.be/drPy4Fu7iZs
